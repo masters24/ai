@@ -1,0 +1,739 @@
+P1 Design an Expert system using AIML. 
+Note: Make changes in the kernel File at Lines no 335 & 356 Change time.clock() to time.process_time() 
+# Code:  main.py
+import aiml 
+kernel = aiml.Kernel() 
+kernel.learn("std-startup.xml") 
+kernel.respond("load aiml b") 
+ while True:
+     input_text = input(">Human: ")
+     response = kernel.respond(input_text)
+     print(">Bot: "+response) 
+
+ std-startup.xml 
+<aiml version="1.0.1" encoding="UTF-8"> 
+    <category> 
+        <pattern> LOAD AIML B </pattern> 
+        <template> 
+            <learn>basic_chat.aiml</learn> 
+        </template> 
+    </category> 
+</aiml> 
+
+# basic_chat.aiml 
+<aiml version="1.0.1" encoding="UTF-8"> 
+<!-- basic_chat.aiml --> 
+    <category> 
+        <pattern>HELLO </pattern> 
+        <template> 
+            Well, hello User 
+        </template> 
+    </category> 
+    <category> 
+        <pattern>What Are You</pattern> 
+        <template> 
+            I’m a bot 
+        </template> 
+    </category> 
+    <category> 
+        <pattern> What do you do</pattern> 
+        <template> 
+            I’m here to annoy you 
+        </template> 
+    </category> 
+    <category> 
+        <pattern> Who I AM</pattern> 
+        <template> 
+            You are user, and you work as a Web Developer... 
+        </template> 
+    </category> 
+</aiml> 
+ 
+   	
+P2 Design a bot using AIML. 
+Note: Make changes in the kernel File at Lines no 335 & 356 Change time.clock() to time.process_time() 
+#Code:  main.py
+import aiml 
+kernel = aiml.Kernel() 
+kernel.learn("std-startup.xml") 
+kernel.respond("load b") 
+while True:
+     input_text = input(">Human: ")
+     response = kernel.respond(input_text)
+     print(">Bot: "+response)
+
+ std-startup.xml 
+<aiml version="1.0.1" encoding="UTF-8"> 
+    <category> 
+        <pattern> LOAD B</pattern> 
+        <template> 
+            <learn>basic_chat.aiml</learn> 
+        </template> 
+    </category> 
+</aiml> 
+ 
+#basic_chat.aiml 
+<aiml version="1.0.1" encoding="UTF-8"> 
+<!-- basic_chat.aiml --> 
+    <category> 
+        <pattern>HELLO </pattern> 
+        <template>             hello User         </template> 
+    </category> 
+    <category> 
+        <pattern>SUNDAY</pattern> 
+        <template> the day of the week before Monday and following Saturday, observed by Christian as a day of rest and religious worship; 
+        </template> 
+    </category> 
+    <category> 
+        <pattern> Monday</pattern> 
+        <template> 
+           the day start after Sunday; 
+        </template> 
+    </category> 
+    <category> 
+        <pattern> Tuesday</pattern> 
+        <template> 
+            the day start after Monday; 
+        </template> 
+    </category> 
+    <category> 
+        <pattern>Wednesday </pattern> 
+        <template> 
+           the day start after Tuesday; 
+        </template> 
+    </category> 
+    <category> 
+        <pattern>Thursday </pattern> 
+        <template> 
+           the day start after Wednesday; 
+        </template> 
+    </category> 
+    <category> 
+        <pattern> Friday</pattern> 
+        <template> 
+            the day start after Thursday; 
+        </template> 
+    </category> 
+    <category> 
+        <pattern>Saturday </pattern> 
+        <template> 
+            the day start after Friday; 
+        </template> 
+    </category> 
+</aiml> 
+ 
+  
+ 	 
+ 
+P3 Implement Bayes Theorem using Python. 
+#Code: main.py 
+def drug_user(prob_th=0.8, sensitivity=0.79, specificity=0.79, prevelance=0.02, verbose=True):     
+p_user = prevelance
+p_non_user = 1-prevelance     
+p_pos_user = sensitivity     
+p_neg_user = specificity     
+p_pos_non_user = 1-specificity     
+num = p_pos_user*p_user 
+    den = p_pos_user*p_user+p_pos_non_user*p_non_user     
+prob = num/den
+     if verbose:
+         if prob > prob_th:
+             print("The test-taker could be an user")
+         else: 
+            print("The test-taker may not be an user")
+     return prob 
+print("User") 
+p=drug_user(prob_th=0.5,sensitivity=0.97,specificity=0.95,prevelance=0.005) print("Probability of the test-taker being a drug user is:",round(p,3)) 
+ 
+  
+ 	 
+ 
+P4 Implement Conditional probability and joint probability using Python. 
+#Code: 	main.py
+def conditional():
+     pass_stats = 0.15
+     pass_codingWStats = 0.60
+     pass_codingWOStats = 0.40 
+    	     prob_both = pass_stats * pass_codingWStats
+     print("The probability that application passes both is", round(prob_both, 3)) 
+    	     prob_coding = (prob_both) + ((1 - pass_stats) * pass_codingWOStats) 
+  	     print("Probability that he/she passes only coding is", round(prob_coding, 3)) 
+    	     stats_given_coding = prob_both / prob_coding 
+   	     print("Conditional probability is", round(stats_given_coding, 3)) 
+     print("Hello") 
+     conditional() 
+ 
+  
+#joint probability 
+#Code:  main.py 
+import numpy as np 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+import pandas as pd 
+sns.set() 
+data = pd.read_csv('data.csv', header=None, names=['x','y']) 
+sns.jointplot(data['x'], data['y'], kind='kde').plot_joint(sns.scatterplot) 
+plt.show() 
+ Output: 
+  
+P5 A program to implement Rule Based System.
+#Code: 	main.py
+def customer_support_bot (user_input):
+if "order" in user_input:
+response = "Please provide your order number for assistance"
+elif "refund" in user_input:
+response = "We're sorry to hear that. Please explain the issue"
+elif "shipping" in user_input:
+else:
+response = "Sure, I can help you with shipping details. Please provide the details."
+response = "I'm sorry, I couldn't understand your query."
+return response
+user_query_1 = "Where is my order?"
+user_query_2 = "I want to refund a product."
+user_query_3= "Tell me about shipping options." 
+user_query_4 = "Can you help with my account?"
+response_1 = customer_support_bot (user_query_1) 
+response_2 = customer_support_bot(user_query_2) 
+response_3 = customer_support_bot (user_query_3) 
+response_4 = customer_support_bot (user_query_4)
+print("User Query:", user_query_1) 
+print("Response:", response_1) 
+print("")
+print("User Query: ", user_query_2) 
+print("Response:", response_2) 
+print("")
+print("User Query: ", user_query_3) 
+print("Response:", response_3) 
+print("")
+print("User Query:", user_query_4) 
+print("Response:", response_4) 
+print("")
+
+	 
+P6 Design a Fuzzy based application using Python. 
+#Note: Install scikit package command: pip install -U scikit-fuzzy 
+#Code: 	main.py 
+import numpy as np 
+import skfuzzy as fuzz 
+from skfuzzy import control as ctrl 
+quality = ctrl.Antecedent(np.arange(0, 11, 1), 'quality') 
+service = ctrl.Antecedent(np.arange(0, 11, 1), 'service') 
+tip = ctrl.Consequent(np.arange(0, 26, 1), 'tip') 
+quality.automf(3) 
+service.automf(3) 
+tip['low'] = fuzz.trimf(tip.universe, [0, 0, 13]) 
+tip['medium'] = fuzz.trimf(tip.universe, [0, 13, 25]) 
+tip['high'] = fuzz.trimf(tip.universe, [13, 25, 25]) 
+quality['average'].view() 
+service.view() 
+ 
+tip.view() 
+rule1 = ctrl.Rule(quality['poor'] | service['poor'], tip['low']) 
+rule2 = ctrl.Rule(service['average'], tip['medium']) 
+rule3 = ctrl.Rule(service['good'] | quality['good'], tip['high']) 
+rule1.view() 
+ 
+tipping_ctrl = ctrl.ControlSystem([rule1, rule2, rule3]) 
+tipping = ctrl.ControlSystemSimulation(tipping_ctrl) 
+tipping.input['quality'] = 6.5 
+tipping.input['service'] = 9.8 
+tipping.compute() 
+print(tipping.output['tip']) 
+tip.view(sim=tipping) 
+ 
+  
+ 
+ 
+P7 Write an application to simulate supervised and un-supervised learning model. 
+#Code: 	supervised learning 
+from sklearn.neighbors import KNeighborsClassifier 
+from sklearn.model_selection import train_test_split 
+from sklearn.datasets import load_iris 
+import numpy as np 
+import matplotlib.pyplot as plt 
+irisData = load_iris() 
+# Create feature and target arrays 
+X = irisData.data 
+y = irisData.target 
+# Split into training and test set 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=42) 
+neighbors = np.arange(1, 9) 
+train_accuracy = np.empty(len(neighbors)) 
+test_accuracy = np.empty(len(neighbors)) 
+# Loop over K values 
+for i, k in enumerate(neighbors): 
+  knn = KNeighborsClassifier(n_neighbors=k) 
+  knn.fit(X_train, y_train) 
+# Compute training and test data accuracy   
+train_accuracy[i] = knn.score(X_train, y_train)   
+test_accuracy[i] = knn.score(X_test, y_test) 
+# Generate plot
+plt.plot(neighbors, test_accuracy, label = 'Testing dataset Accuracy') 
+plt.plot(neighbors, train_accuracy, label = 'Training dataset Accuracy') 
+plt.legend() 
+plt.xlabel('n_neighbors') 
+plt.ylabel('Accuracy') 
+plt.show() 
+
+  
+#Unsupervised Learning? 
+#Code: 	main.py 
+import matplotlib.pyplot as plt 
+import pandas as pd 
+import numpy as np 
+customer_data = pd.read_csv('Mall_Customers.csv') 
+customer_data.shape 
+customer_data.head() 
+data = customer_data.iloc[:, 3:5].values 
+import scipy.cluster.hierarchy as shc 
+plt.figure(figsize=(10, 7)) 
+plt.title("Customer Dendograms") 
+dend = shc.dendrogram(shc.linkage(data, method='ward')) 
+from sklearn.cluster import AgglomerativeClustering 
+cluster = AgglomerativeClustering() 
+cluster.fit_predict(data) 
+plt.figure(figsize=(10, 7)) 
+plt.scatter(data[:,0], data[:,1], c=np.arctan2(data[:,0], data[:,1]), cmap='rainbow', s=50, alph a=0.8) 
+plt.show() 
+ 
+    
+ 
+ 
+P8 Write an application to implement Clustering algorithm. 
+Code: 	main.py 
+from numpy import where 
+from sklearn.datasets import make_classification 
+from matplotlib import pyplot 
+x,y = make_classification(n_samples=1000, n_features=2, n_informative=2, n_redundant=0,                           n_clusters_per_class=1, random_state=4) 
+for class_value in range(2):
+     row_ix = where(y == class_value)
+     pyplot.scatter(x[row_ix, 0], x[row_ix, 1]) 
+pyplot.show() 
+ 
+ 
+  
+P9 Write an application to implement support vector machine algorithm.
+#Code:	main.py
+import numpy as np
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
+# Load the Iri dataset
+iris = datasets.load_iris()
+X = iris.data
+y = iris.target
+# Consider only two classes (binary classification)
+X = X[y != 2]  # Remove class 2
+y = y[y != 2]  # Remove class 2
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Create an SVM model with a linear kernel
+svm_model = SVC(kernel='linear')
+# Train the SVM model
+svm_model.fit(X_train, y_train)
+# Make predictions on the test set
+y_pred = svm_model.predict(X_test)
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy :.1f}')
+
+
+
+
+P10 Simulate artificial neural network model with both feedforward & backpropagation approach. [You can add some functionalities to enhance the model].
+#Code:	main.py
+import numpy as np
+class NeuralNetwork:
+    def __init__(self, input_size, hidden_size, output_size, learning_rate):
+        # Initialize network parameters
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.output_size = output_size
+        self.learning_rate = learning_rate
+
+        # Initialize weights and biases
+        self.weights_input_hidden = np.random.rand(self.input_size, self.hidden_size)
+        self.bias_hidden = np.zeros((1, self.hidden_size))
+        self.weights_hidden_output = np.random.rand(self.hidden_size, self.output_size)
+        self.bias_output = np.zeros((1, self.output_size))
+
+    def sigmoid(self, x):
+        # Sigmoid activation function
+        return 1 / (1 + np.exp(-x))
+
+    def sigmoid_derivative(self, x):
+        # Derivative of the sigmoid function
+        return x * (1 - x)
+
+    def forward(self, inputs):
+        # Forward pass
+        self.hidden_inputs = np.dot(inputs, self.weights_input_hidden) + self.bias_hidden
+        self.hidden_outputs = self.sigmoid(self.hidden_inputs)
+        self.output_inputs = np.dot(self.hidden_outputs, self.weights_hidden_output) + self.bias_output
+        self.output_outputs = self.sigmoid(self.output_inputs)
+        return self.output_outputs
+
+    def backward(self, inputs, targets):
+        # Backpropagation
+        output_errors = targets - self.output_outputs
+        output_deltas = output_errors * self.sigmoid_derivative(self.output_outputs)
+        hidden_errors = output_deltas.dot(self.weights_hidden_output.T)
+        hidden_deltas = hidden_errors * self.sigmoid_derivative(self.hidden_outputs)
+
+        # Update weights and biases
+        self.weights_hidden_output += self.hidden_outputs.T.dot(output_deltas) * self.learning_rate
+        self.bias_output += np.sum(output_deltas, axis=0, keepdims=True) * self.learning_rate
+        self.weights_input_hidden += inputs.T.dot(hidden_deltas) * self.learning_rate
+        self.bias_hidden += np.sum(hidden_deltas, axis=0, keepdims=True) * self.learning_rate
+
+    def train(self, inputs, targets, epochs):
+        # Training loop
+        for epoch in range(epochs):
+            # Forward and backward pass
+            outputs = self.forward(inputs)
+            self.backward(inputs, targets)
+
+            # Calculate and print the loss (MSE)
+            loss = np.mean(np.square(targets - outputs))
+            print(f"Epoch {epoch + 1}/{epochs}, Loss: {loss:.4f}")
+
+    def predict(self, inputs):
+        # Make predictions
+        return self.forward(inputs)
+# Example usage
+if __name__ == "__main__":
+    # Define the neural network
+    input_size = 2
+    hidden_size = 4
+    output_size = 1
+    learning_rate = 0.1
+
+    # Create a neural network
+    nn = NeuralNetwork(input_size, hidden_size, output_size, learning_rate)
+
+    # Sample input and target data
+    inputs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    targets = np.array([[0], [1], [1], [0]])
+
+    # Train the neural network
+    epochs = 10000
+    nn.train(inputs, targets, epochs)
+
+    # Test the trained network
+    test_inputs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    predictions = nn.predict(test_inputs)
+    print("Predictions:")
+    print(predictions)
+
+
+
+P11 Simulate genetic algorithm with suitable example using Python. 
+#Code: 	main.py
+import random 
+# Number of individuals in each generation 
+POPULATION_SIZE = 100
+
+# Valid genes 
+GENES = '''abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP 
+QRSTUVWXYZ 1234567890, .-;:_!"#%&/()=?@${[]}'''
+
+# Target string to be generated 
+TARGET = "Nothing"
+class Individual(object): 
+	''' 
+	Class representing individual in population 
+	'''
+	def __init__(self, chromosome): 
+		self.chromosome = chromosome 
+		self.fitness = self.cal_fitness() 
+	@classmethod
+	def mutated_genes(self): 
+		''' 
+		create random genes for mutation 
+		'''
+		global GENES 
+		gene = random.choice(GENES) 
+		return gene 
+	@classmethod
+	def create_gnome(self): 
+		''' 
+		create chromosome or string of genes 
+		'''
+		global TARGET 
+		gnome_len = len(TARGET) 
+		return [self.mutated_genes() for _ in range(gnome_len)] 
+	def mate(self, par2): 
+		''' 
+		Perform mating and produce new offspring 
+		'''
+		# chromosome for offspring 
+		child_chromosome = [] 
+		for gp1, gp2 in zip(self.chromosome, par2.chromosome):	 
+			# random probability 
+			prob = random.random() 
+			# if prob is less than 0.45, insert gene 
+			# from parent 1 
+			if prob < 0.45: 
+				child_chromosome.append(gp1) 
+			# if prob is between 0.45 and 0.90, insert 
+			# gene from parent 2 
+			elif prob < 0.90: 
+				child_chromosome.append(gp2) 
+			# otherwise insert random gene(mutate), 
+			# for maintaining diversity 
+			else: 
+				child_chromosome.append(self.mutated_genes()) 
+		# create new Individual(offspring) using 
+		# generated chromosome for offspring 
+		return Individual(child_chromosome) 
+	def cal_fitness(self): 
+		''' 
+		Calculate fitness score, it is the number of 
+		characters in string which differ from target 
+		string. 
+		'''
+		global TARGET 
+		fitness = 0
+		for gs, gt in zip(self.chromosome, TARGET): 
+			if gs != gt: fitness+= 1
+		return fitness 
+# Driver code 
+def main(): 
+	global POPULATION_SIZE 
+	#current generation 
+	generation = 1
+	found = False
+	population = [] 
+	# create initial population 
+	for _ in range(POPULATION_SIZE): 
+				gnome = Individual.create_gnome() 
+				population.append(Individual(gnome)) 
+	while not found: 
+		# sort the population in increasing order of fitness score 
+		population = sorted(population, key = lambda x:x.fitness) 
+		# if the individual having lowest fitness score ie. 
+		# 0 then we know that we have reached to the target 
+		# and break the loop 
+		if population[0].fitness <= 0: 
+			found = True
+			break
+		# Otherwise generate new offsprings for new generation 
+		new_generation = [] 
+		# Perform Elitism, that mean 10% of fittest population 
+		# goes to the next generation 
+		s = int((10*POPULATION_SIZE)/100) 
+		new_generation.extend(population[:s]) 
+		# From 50% of fittest population, Individuals 
+		# will mate to produce offspring 
+		s = int((90*POPULATION_SIZE)/100) 
+		for _ in range(s): 
+			parent1 = random.choice(population[:50]) 
+			parent2 = random.choice(population[:50]) 
+			child = parent1.mate(parent2) 
+			new_generation.append(child) 
+		population = new_generation 
+		print("Generation: {}\tString: {}\tFitness: {}".\
+			format(generation, 
+			"".join(population[0].chromosome), 
+			population[0].fitness)) 
+		generation += 1
+	print("Generation: {}\tString: {}\tFitness: {}".\
+		format(generation, 
+		"".join(population[0].chromosome), 
+		population[0].fitness)) 
+if __name__ == '__main__': 
+	main()
+
+ 
+P12 Design an Artificial Intelligence application to implement intelligent agents. 
+# Code:	main.py
+# Import the abstract classes for Environment and Agent
+from agents import Environment, Agent
+# Define a subclass of Environment that represents a tic-tac-toe board
+class TicTacToe(Environment):
+    # Initialize the environment with a 3x3 grid and a list of things
+    def __init__(self, things):
+        super().__init__()
+        self.grid = [[' ' for _ in range(3)] for _ in range(3)]
+        for thing in things:
+            self.add_thing(thing)
+    # Add a thing to the environment at a random location
+    def add_thing(self, thing, location=None):
+        if location is None:
+            # Choose a random location that is not occupied
+            x = random.randrange(3)
+            y = random.randrange(3)
+            while self.grid[y][x] != ' ':
+                x = random.randrange(3)
+                y = random.randrange(3)
+            location = (x, y)
+        super().add_thing(thing, location)
+        # Add the thing to the grid
+        x, y = location
+        self.grid[y][x] = thing.symbol
+    # Return the percept of an agent at a given location
+    def percept(self, agent):
+        # The percept is the current state of the grid
+        return self.grid
+    # Execute an action of an agent
+    def execute_action(self, agent, action):
+        # Update the performance measure of the agent
+        agent.performance -= 1
+        # Check the action and perform it if possible
+        if action == 'Move':
+            # Move the agent to a random location that is not occupied
+            x = random.randrange(3)
+            y = random.randrange(3)
+            while self.grid[y][x] != ' ':
+                x = random.randrange(3)
+                y = random.randrange(3)
+            self.add_thing(agent, (x, y))
+        elif action == 'Win':
+            # The agent wins the game
+            print(f"{agent.symbol} wins!")
+            self.is_done = True
+        elif action == 'Lose':
+            # The agent loses the game
+            print(f"{agent.symbol} loses!")
+            self.is_done = True
+        elif action == 'Draw':
+            # The game is a draw
+            print("It's a draw!")
+            self.is_done = True
+    # Check if the game is over
+    def is_done(self):
+        # The game is over if there is a winner or the board is full
+        return self.winner() or self.is_full()
+    # Check if the board is full
+    def is_full(self):
+        # The board is full if there are no empty spaces
+        for row in self.grid:
+            for cell in row:
+                if cell == ' ':
+                    return False
+        return True
+    # Check if there is a winner
+    def winner(self):
+        # The winner is the symbol that has three in a row, column, or diagonal
+        symbols = ['X', 'O']
+        for symbol in symbols:
+            # Check rows
+            for row in self.grid:
+                if row.count(symbol) == 3:
+                    return symbol
+            # Check columns
+            for i in range(3):
+                column = [row[i] for row in self.grid]
+                if column.count(symbol) == 3:
+                    return symbol
+            # Check diagonals
+            diagonal1 = [self.grid[i][i] for i in range(3)]
+            diagonal2 = [self.grid[i][2-i] for i in range(3)]
+            if diagonal1.count(symbol) == 3 or diagonal2.count(symbol) == 3:
+                return symbol
+        # No winner
+        return None
+# Define a subclass of Agent that represents a tic-tac-toe player
+class TicTacToePlayer(Agent):
+    # Initialize the agent with a symbol and a program that maps percepts to actions
+    def __init__(self, symbol, program=None):
+        super().__init__(program)
+        self.symbol = symbol
+    # Define a program that returns an action based on the percept
+    def program(self, percept):
+        # If the percept is a winner, return the corresponding action
+        winner = percept.winner()
+        if winner == self.symbol:
+            return 'Win'
+        elif winner != None:
+            return 'Lose'
+        # If the percept is a full board, return 'Draw'
+        if percept.is_full():
+            return 'Draw'
+        # Otherwise, return 'Move'
+        else:
+            return 'Move'
+# Create a tic-tac-toe environment with two players
+env = TicTacToe([TicTacToePlayer('X'), TicTacToePlayer('O')])
+# Run the environment for 9 steps
+env.run(9)
+Output: 
+This output shows the initial state of the board, the moves made by each player, and the final result of the game. The code example is based on the Tic-tac-toe.
+
+
+
+P13 Design an application to simulate language parser. 
+Code:	main.py
+import re
+precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
+def shunting_yard(expression):
+    output = []
+    operators = []
+    tokens = re.findall(r'\d+|[-+*/^()]', expression)
+    for token in tokens:
+        if token.isnumeric():
+            output.append(token)
+        elif token in precedence:
+            while (operators and operators[-1] in precedence and
+                   precedence[token] <= precedence[operators[-1]]):
+                output.append(operators.pop())
+            operators.append(token)
+        elif token == '(':
+            operators.append(token)
+        elif token == ')':
+            while operators and operators[-1] != '(':
+                output.append(operators.pop())
+            operators.pop()
+    while operators:
+        output.append(operators.pop())
+    return output
+def evaluate_postfix(postfix):
+    stack = []
+    for token in postfix:
+        if token.isnumeric():
+            stack.append(float(token))
+        elif token in '+-*/^':
+            b = stack.pop()
+            a = stack.pop()
+            if token == '+':
+                stack.append(a + b)
+            elif token == '-':
+                stack.append(a - b)
+            elif token == '*':
+                stack.append(a * b)
+            elif token == '/':
+                stack.append(a / b)
+            elif token == '^':
+                stack.append(a ** b)
+    return stack[0]
+def parse_and_evaluate(expression):
+    postfix = shunting_yard(expression)
+    result = evaluate_postfix(postfix)
+    return result
+expression = "3 + 5 * ( 2 - 6 )"
+result = parse_and_evaluate(expression)
+print(f"Result of {expression} is {result}")
+Output:
+	 
+ 
+P14 Design an application to simulate semantic web.
+Code:	main.py
+from rdflib import Graph, Namespace, Literal
+g = Graph()
+ex = Namespace("http://example.org/")
+g.add((ex.Person, ex.hasName, Literal("John Doe")))
+g.add((ex.Person, ex.hasAge, Literal(30)))
+from rdflib.plugins.sparql import prepareQuery
+query = prepareQuery(
+    """SELECT ?name ?age
+    WHERE{
+    ?person ex:hasName ?name .
+    ?person ex:hasAge ?age .
+    }
+    """,
+    initNs={"ex": ex}
+)
+results = g.query(query)
+for row in results:
+    print(f"Name: {row.name}, Age: {row.age}")
