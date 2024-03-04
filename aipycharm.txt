@@ -282,6 +282,11 @@ plt.show()
 
   
 #Unsupervised Learning? 
+data:
+customer_id	gender	age	annual_income	spending_score
+1	Male	19	15	39
+2	Male	21	15	81
+
 #Code: 	main.py 
 import matplotlib.pyplot as plt 
 import pandas as pd 
