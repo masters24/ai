@@ -52,6 +52,7 @@ kernel.respond("load aiml b")
    	
 P2 Design a bot using AIML. 
 Note: Make changes in the kernel File at Lines no 335 & 356 Change time.clock() to time.process_time() 
+#venv-lib-site packages-aiml-script-kernel.py
 #Code:  main.py
 import aiml 
 kernel = aiml.Kernel() 
